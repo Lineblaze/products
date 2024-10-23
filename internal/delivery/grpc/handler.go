@@ -101,8 +101,6 @@ func (h *Handler) GetProductCategories(ctx context.Context, req *productsv1.GetP
 	}, nil
 }
 
-// Product Handlers
-
 func (h *Handler) CreateProduct(ctx context.Context, req *productsv1.CreateProductRequest) (*productsv1.ProductResponse, error) {
 	h.logger.Infof("Creating product: %s", req.Name)
 

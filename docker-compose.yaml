@@ -1,0 +1,16 @@
+services:
+  products:
+    image: postgres:latest
+    env_file:
+      - ./.env
+    volumes:
+      - ./migrations/products.sql:/docker-entrypoint-initdb.d/products.sql
+      - ./database/products:/var/lib/postgresql/data
+    container_name: products
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DATABASE=${POSTGRES_DATABASE}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    restart: unless-stopped
